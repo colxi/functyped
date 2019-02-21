@@ -1,4 +1,4 @@
-import '../function-typed.js';
+import '../functyped.js';
 
 
 // OVERLOAD SYNTAX

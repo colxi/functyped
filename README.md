@@ -1,4 +1,4 @@
-## Function-typed
+## Functyped
 
 Automatic **static type-checking** for javascript functions through declarative syntax, providing  complete support to the language native data-types / primitives,  as well as to complex typed structures and custom types.
 
@@ -42,7 +42,7 @@ Automatic **static type-checking** for javascript functions through declarative 
 **Example :**
 Inline declaration example (other declarations methods are available):
 ```javascript
-require('functon-typed');
+require('functyped');
 
 // Declare a function that recieves two Numbers, and returns a Boolean
 const myFunc = Typed.function( [ Number, Number ] , (a,b)=>{ return a==b },  Boolean);
@@ -58,16 +58,16 @@ myFunc(1,'2');
 
 Install using Npm :
 ```
-$ npm install function-typed
+$ npm install functyped
 ```
 
 Clone with Git :
 ```
-$ git clone https://github.com/colxi/function-typed
+$ git clone https://github.com/colxi/functyped
 ```
 Add to your HTML head :
 ```
-<script src="https://colxi.github.io/function-typed/function-typed.js"></script>
+<script src="https://colxi.github.io/functyped/functyped.js"></script>
 ```
 
 The library can be imported using ES6 `import`, and Node `require`. In both cases no assignment needs to be performed, the global object `Typed		` is created automatically.

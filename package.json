@@ -1,10 +1,10 @@
 {
-  "name": "function-typed",
-  "version": "1.0.7",
-  "homepage": "https://github.com/colxi/function-typed",
+  "name": "functyped",
+  "version": "1.0.8",
+  "homepage": "https://github.com/colxi/functyped",
   "repository": {
     "type": "git",
-    "url": "https://github.com/colxi/function-typed.git"
+    "url": "https://github.com/colxi/functyped.git"
   },
   "keywords": [
     "typed",
@@ -24,7 +24,7 @@
     "typed-js"
   ],
   "description": "Automatic static type-checking for javascript functions through declarative syntax.",
-  "main": "function-typed.js",
+  "main": "functyped.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
