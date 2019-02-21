@@ -192,9 +192,9 @@ sayHi({
     }
 })
 ```
-As you can see in the example, `Typed Structured Objects` and `Typed Structured Arrays` are supported, and is capable of handling nested structures.
+As you can see in the example, `Typed Objects Structure` and `Typed  Array Structured` are supported, as well as nesting.
 
-**The type checks performed in both Typed Structures are `strict` , length of arrays must match, and exact object structure (keys) is required, in order to pass the checks.**
+**The type checks performed in both Typed Structures are strict in the sense that Array length / Object structure (keys) must match, in order to pass the checks.**
 
 ## Binding
 In some circunstances , you will need to bind your function to a specific context, and the `binding` parameter lets you accomplish that.

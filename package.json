@@ -1,6 +1,6 @@
 {
   "name": "function-typed",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "homepage": "https://github.com/colxi/function-typed",
   "repository": {
     "type": "git",
@@ -14,9 +14,16 @@
     "typed parameters",
     "static types",
     "strong types",
-    "type check"
+    "type check",
+    "typed js",
+	"typed-function",
+    "typed-arguments",
+    "typed-parameters",
+    "static-types",
+    "strong-types",
+    "typed-js"
   ],
-  "description": "Statically typed functions for javascript, with expandable types support.",
+  "description": "Automatic static type-checking for javascript functions through declarative syntax.",
   "main": "function-typed.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
