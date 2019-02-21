@@ -1,11 +1,26 @@
 {
   "name": "function-typed",
-  "version": "1.0.2",
+  "version": "1.0.5",
+  "homepage": "https://github.com/colxi/function-typed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colxi/function-typed.git"
+  },
+  "keywords": [
+    "typed",
+    "types",
+    "typed function",
+    "typed arguments",
+    "typed parameters",
+    "static types",
+    "strong types",
+    "type check"
+  ],
   "description": "Statically typed functions for javascript, with expandable types support.",
   "main": "function-typed.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "colxi",
-  "license": "ISC"
+  "license": "MIT",
+  "author": "colxi"
 }

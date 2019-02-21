@@ -7,6 +7,8 @@
 (function(){
 	"use strict"
 
+	const Any = Symbol('Any');
+	
 	const _Interfaces = {};
 
 	/*
@@ -15,6 +17,7 @@
 	 * using the Typed.addType() method
 	 */
 	const _Types = {
+		[Any]      : x=>{ return true                        },
 		[Boolean]  : x=>{ return typeof x === 'boolean'      },
 		[Number]   : x=>{ return typeof x === 'number'       },
 		[String]   : x=>{ return typeof x === 'string'       },
@@ -212,6 +215,9 @@
 			/**  CALLBACK FUNCTION HANDLER **/
 			
 			return function(...args){
+				// if engine is disabled dont perform tests
+				if( !Typed.enabled ) return (binding) ? func.bind(binding) : func;
+				
 				// validate arguments
 				Typed.validate( args, parameterTypes );
 				
@@ -223,7 +229,6 @@
 		},
 		// throws errr if any element fails
 		validate : function( args, parameterTypes , isReturnValue = false ){
-						if( !Typed.enabled ) return true;
 			if( !Array.isArray(args) ) args = [args];
 			if( !Array.isArray(parameterTypes) ) parameterTypes = [parameterTypes];
 			
@@ -320,7 +325,7 @@
 	}
 
 
-	// Detect the root object, and set the Typed Object in it 
+	// Detect the root object, and set the Typed API object in it 
 	// `window`in the browser,
 	// 'self' in WebWorkers
 	// `global` in Node
@@ -328,5 +333,9 @@
 			typeof self === 'object' && self.self === self && self ||
 			typeof global === 'object' && global.global === global && global;
      r.Typed = Typed;
+	 
+	 // make the Any type public
+	 r.Any = Any;
+
 	
 })();

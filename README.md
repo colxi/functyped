@@ -1,25 +1,45 @@
 ## Function-typed
 
-Statically typed functions for javascript , with expandable types support.
+Automatic **static type-checking** for javascript functions through declarative syntax, providing  complete support to the language native data-types / primitives,  as well as to complex typed structures and custom types.
 
 **Characteristics & features :**
-- Tiny (0 Kb)
+- Tiny (6Kb minified)
 - No dependencies
 - Multi enviroment & crossbrowser (Node, Chrome, Firefox, Safari, Edge...)
 - Multiple function declaration styles : Overload / Inline / Interfaces 
 - Declarative / Imperative typechecks available
-- Complex type structures allowed
-- Configurable 
+- Complex type structures supported
+- Configurable
 - Expandable (custom types)
 
-| Types | | | | |
-|--------|--------|--------|--------|--------|
-| Boolean | Number | String | Array | Function |
-| Promise | Object | Date | Symbol| Error |
-| null | undefined | Error | structure []* | structured {}* |
+**Supported types :**
 
-> *For more information about Typed structures , check the corresponding section in this documentation 
+<table align="center">
+    <tr>
+        <td align="center">Boolean</td>
+        <td align="center">Number</td>
+        <td align="center">String</td>
+        <td align="center">Array</td>
+        <td align="center">Function</td>
+    </tr>
+    <tr>
+        <td align="center">Object</td>
+        <td align="center">Symbol</td>
+        <td align="center">Promise</td>
+        <td align="center">Date</td>
+        <td align="center">Error</td>
+    </tr>
+    <tr>
+        <td align="center">undefined</td>
+        <td align="center">null</td>
+        <td align="center">*Any* </td>
+        <td align="center">*Structured { } / [ ]*</td>
+        <td align="center">*Custom*</td>
+    </tr>
+</table>
 
+
+**Example :**
 Inline declaration example (other declarations methods are available):
 ```javascript
 require('functon-typed');
@@ -29,8 +49,28 @@ const myFunc = Typed.function( [ Number, Number ] , (a,b)=>{ return a==b },  Boo
 
 myFunc(1,'2');
 // Uncaught TypeError : Invalid type found in argument 2. (Expecting a "Number").
-
 ```
+
+> **Important** :  Type checks are performed at execution time, adding an extra overhead to the function calls, with obvious effects in performance. Check the Performance section in this documentation for more information, as well as recommendations.
+
+
+## Package distribution 
+
+Install using Npm :
+```
+$ npm install function-typed
+```
+
+Clone with Git :
+```
+$ git clone https://github.com/colxi/function-typed
+```
+Add to your HTML head :
+```
+<script src="https://colxi.github.io/function-typed/function-typed.js"></script>
+```
+
+The library can be imported using ES6 `import`, and Node `require`. In both cases no assignment needs to be performed, the global object `Typed		` is created automatically.
 
 ---
 ### Syntax
@@ -38,8 +78,8 @@ myFunc(1,'2');
 Typed.function( parametersTypes , yorFunction, returnType [, bindging] )
 ```
 **Parameters** :
-- `parameterTypes` : Array containing the primitive types for each parameter. (Array is not needed if function has just a parameter)
-- `yorFunction` : Function to be type tested. ( Arrow functions not allowed when binding )
+- `parameterTypes` : Array containing the primitive types for each parameter. (Array wrapper is not needed if function has just a parameter)
+- `yorFunction` : Function to be type tested. ( Arrow functions are not allowed when binding )
 - `returnType` : Type for the function return value.
 - `binding` : (optional) Context to be binded to the function (if binding is provided, the parameter `function` cant't be an arrow function)
 
@@ -51,13 +91,13 @@ Typed functions can be initialized through different approaches. Each one, provi
 
 
 #### 1- Overload
-Probably the most clean and less intrusive, considering it lets you implement your code in the same way you normally do, and later on,  overload the typing specifications.
+Probably the most clean and less intrusive, considering it lets you implement your code the same way you normaly do, and later on,  overload the typing specifications.
 ```javascript
-//declare your function normally
+//declare your function normaly
 function myFunc(a,b){
 	return a===b;
 };
-// perform the overloading
+// perform overloading
 myFunc = Typed.function(  [ Number, Number ] , myFunc, Boolean );
 
 myFunc(6,8); // returns false
@@ -66,7 +106,7 @@ myFunc(6,8); // returns false
 #### 2 - Inline
 Probably the most compact declaration approach. Types are set when function is declared.
 ```javascript
-// declare the strong typed function
+// declare the typed function
 let myFunc = Typed.function( [ Number, Number ] , (a,b)=>{
 	return a===b;
 }, Boolean );
@@ -74,17 +114,26 @@ let myFunc = Typed.function( [ Number, Number ] , (a,b)=>{
 myFunc(6,8); // returns false
 ```
 #### 3 - Interfaces
-Interfaces are normally declared at the top of your code, and are used to specify the details of the types used by your function parameters, and return value.
+In some languages `Interfaces` are declared at the top of your code, and are used to specify the details of the types expected by the function parameters, and return value.
+
+Interfaces can be declared using the following method: 
+```
+Typed.interface( parameterTypes , interfaceId ,  returnType);
+```
+**Parameters:**
+- `parameterTypes` : Array containing the primitive types for each parameter. (Array wrapper is not needed if function has just a parameter)
+- `interfaceId` : Unique String with the name of the interface 
+- `returnType` : Type for the function return value.
 
 The initializacion syntax for Interfaced functions is the simplest one.
-Because the types have already been declared in the Interface, you only need to provide the fuction referente (and optionally the binding)
+Because the types have already been declared in the `Interface`, you only need to provide the fuction referente (and optionally the binding) to the `Typed.function()` Constructor
 
 
 ```javascript
 // declare the interface
 Typed.interface( [ Number, Number ] , 'myFunc' ,  Boolean);
 
-// declare a function using the interface Name as the function name
+// declare a function using the interface id as the function name
 function myFunc(a,b){ return a===b }
 // Perform overloading (but it could be declared inline instead)
 myFunc = Typed.function( myFunc );
@@ -112,7 +161,7 @@ myFunc(6,8);  // returns false
 myFunc2(6,8); // returns true
 
 ```
-> Note :  Arrow functions can't be used with interfaces, because of the lack of the function name used as interface identifier
+> Note :  Arrow functions can't be used with interfaces, since they lack of function name ( which used as interface identifier )
 
 
 ## Typed structures
@@ -148,9 +197,9 @@ As you can see in the example, `Typed Structured Objects` and `Typed Structured 
 **The type checks performed in both Typed Structures are `strict` , length of arrays must match, and exact object structure (keys) is required, in order to pass the checks.**
 
 ## Binding
-In some circumstances , you will need to bind your function to a specific context, and the `binding` parameter lets you accomplish that.
+In some circunstances , you will need to bind your function to a specific context, and the `binding` parameter lets you accomplish that.
 
-> Note : Binding is not possible when arrow functions are used 
+> Note : Binding is not possible when arrow functions are used.
 
 Example for each declaration approach :
 
@@ -196,10 +245,10 @@ myFunction(a,b,c){
     return;
 }
 ```
-
+> Note : `Typed.validate()` is not affected by the `Typed.enabled` directive.
 
 ## Safe type checks
-You can test value types, to check if they match the expected type, using the `Typed.test()` method. No errors are thrown when testing,l instead a `Boolean` value is returned, indicating if the test was succesful or failes.
+You can test value types, to check if they match the expected type, using the `Typed.test()` method. No errors are thrown when testing, instead a `Boolean` value is returned, indicating if the test was succesfull or failed instead.
 
 ```
 Typed.test( values, types );
@@ -216,18 +265,18 @@ Typed.test( [123, 456] , [Number,Boolean] ); // returns false
 ```
 
 ## Adding new Types
-Using the `Typed.addType()` method , more types can be added easilly. Native types and custom types are supported.
+Using the `Typed.addType()` method , more types can be added easilly.
 
 ```
 Typed.addType( type , test )
 ```
 **Arguments :**
-- `type` : Token representing the type
+- `type` : Reference representing the new Type (Constructor, String, Symbol...)
 - `test` : Function that will perform the test, and return a Boolean
 
-**Usage :**
+**Example :**
 ```javascript
-// adding a native type
+// adding a browser native object
 Typed.addType( HTMLElement , x=> x instanceof HTMLElement );
 
 // adding a custom type
@@ -242,15 +291,29 @@ Two properties are provided to modify the type check engine behavior
 Typed.enabled = true | false
 ```
 
-**Enable/disable the full engine** ; You can disable the type checks by setting this property to false. If is set to false, before any function is declared ,your code will not suffer from the type check performance performance lose.
+**Enable/disable the full engine** ; You can disable the type checks by setting this property to false. If is set to false before any function is declared , your code will not suffer from the type check performance lose.
 
 ```
 Typed.warings = true | false
 ```
-**Enable/disable notifiacion mode** : If enabled, now Errors will be thrown and instead informative warning will be triggered.
+**Enable/disable notifiacion mode** : If enabled, no Errors will be thrown and informative warning will be triggered instead.
 
 
 
-## Performance 
+## Performance
 
 
+Because of the loosely typed nature of javascript, no type check is performed at compilation time. It is the developer who needs to perform those checks by their own, at execution time. 
+
+> A continuous check on the used variables values comes obviously with a performance penalty, especially when it's widespread.
+
+A system able to automatize this task in your functions requires the usage of wrappers over those functions, which, in turn, also adds another layer of performance reduction.
+
+Personally, I think an automated type-check system can be especially useful in development enviroments, but should be disabled in **demanding production enviroments**.
+
+The `Typed.enabled` property allows to completelly disable the type-checks without affecting the behavior of your code, and giving back the native execution performance. 
+**It is important to understand that it is necessary to disable the engine before any function is declared, otherwise the function wrappers will still be generated.**
+
+Since the imperative type-check method (`Typed.validate()`) is not affected by the `Typed.enabled` directive, it still can be used to perform critical type checks, in scenarios where type-checking is mandatory (like user input validation)
+
+In result, you can enjoy a complete static type check experience, without any performance downside, or code style pollution (thanks to overload declaration syntax)
