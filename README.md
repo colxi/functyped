@@ -317,3 +317,5 @@ The `Typed.enabled` property allows to completelly disable the type-checks witho
 Since the imperative type-check method (`Typed.validate()`) is not affected by the `Typed.enabled` directive, it still can be used to perform critical type checks, in scenarios where type-checking is mandatory (like user input validation)
 
 In result, you can enjoy a complete static type check experience, without any performance downside, or code style pollution (thanks to overload declaration syntax)
+
+Performance tests : https://jsperf.com/functyped/

@@ -127,10 +127,10 @@
 	const Typed = {
 		// Engine can be disabled by setting enables property to false
 		// in consequence no tests will be performed
-		enabled  : true,
+		enabled      : true,
 		// if warnings is set to true, the engine will only display warnings
 		// when types mismatchs are detected (instead of Errors)
-		warnings : false,
+		warnings     : false,
 		// Add new types to the supportes types collection
 		addType : function(type, test){
 			if( !_Types.hasOwnProperty(type) ){
@@ -219,11 +219,11 @@
 				if( !Typed.enabled ) return (binding) ? func.bind(binding) : func;
 				
 				// validate arguments
-				Typed.validate( args, parameterTypes );
+				Typed.validate( args, parameterTypes , false);
 				
 				let result = (binding) ? func.bind(binding)(...args) : func(...args);
-				/// validate return value
-				Typed.validate(result, returnType , true);
+				// validate return value if its not Any
+				if( returnType !== Any ) Typed.validate(result, returnType , true);
 				return(result);
 			}
 		},
@@ -235,7 +235,7 @@
 			if(!isReturnValue){
 				// throw error if the args and the types count dont match
 				if(args.length !== parameterTypes.length){
-					return _throwTypeError(`TypeError : Provided arguments count (${parameterTypes.length}) does not match the types count (${args.length})`);
+					return _throwTypeError(`TypeError : Invalid number of argments (Expected : ${args.length})`);
 				}
 			}
 				

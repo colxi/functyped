@@ -20,6 +20,7 @@ var myFunc2 = Typed.function( [ Number, Number ] , (a,b)=>{
 	return a===b;
 }, Boolean );
 
+
 myFunc2(6,8); // returns false
 
 

@@ -1,27 +1,21 @@
 {
   "name": "functyped",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "homepage": "https://github.com/colxi/functyped",
   "repository": {
     "type": "git",
     "url": "https://github.com/colxi/functyped.git"
   },
   "keywords": [
-    "typed",
-    "types",
     "typed function",
-    "typed arguments",
     "typed parameters",
+    "typed arguments",
     "static types",
     "strong types",
     "type check",
-    "typed js",
-	"typed-function",
-    "typed-arguments",
-    "typed-parameters",
-    "static-types",
-    "strong-types",
-    "typed-js"
+    "typed js"
+    "typed",
+    "types",
   ],
   "description": "Automatic static type-checking for javascript functions through declarative syntax.",
   "main": "functyped.js",
