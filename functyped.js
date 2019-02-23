@@ -131,6 +131,8 @@
 		// if warnings is set to true, the engine will only display warnings
 		// when types mismatchs are detected (instead of Errors)
 		warnings     : false,
+		// keep a counter on registered functions
+		__fn__       : 0,
 		// Add new types to the supportes types collection
 		addType : function(type, test){
 			if( !_Types.hasOwnProperty(type) ){
@@ -211,6 +213,9 @@
 			
 			// if engine is disabled (Typed.enabled==false), return callback function as it is
 			if( !Typed.enabled ) return (binding) ? func.bind(binding) : func;
+			
+			// increase the counter
+			Typed.__fn__++;
 			
 			/**  CALLBACK FUNCTION HANDLER **/
 			
