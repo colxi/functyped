@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="style.css">
+
 ## Functyped : Specifications
 
 | [Home](./README.md) | Specs | Usage | Install | Expand |
