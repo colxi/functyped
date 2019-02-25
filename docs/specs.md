@@ -1,22 +1,23 @@
 ## Functyped : Specifications
 
-| About | Specs | Usage | Install | Expand |
+| [Home](./README.rm) | Specs | Usage | Install | Expand |
 
 
-<div class="cols-2">
+<div class="cols">
 	<div class="">
-    	lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  v lorem ipsum dolorem amet  v v v lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  
+       <h3>About :</h3>
+    lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  v lorem ipsum dolorem amet  v v v lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  
     </div>
 	<div class="">
         <h3>Characteristics & features :</h3>
-        - Tiny (6Kb minified)
-        - No dependencies
-        - Multi enviroment & crossbrowser (Node, Chrome, Firefox, Safari, Edge...)
-        - Multiple function declaration styles : Overload / Inline / Interfaces 
-        - Declarative / Imperative typechecks available
-        - Complex type structures supported
-        - Configurable
-        - Expandable (custom types)
+        - Tiny (6Kb minified)<br>
+        - No dependencies<br>
+        - Multi enviroment & crossbrowser (Node, Chrome, Firefox, Safari, Edge...)<br>
+        - Multiple function declaration styles : Overload / Inline / Interfaces <br>
+        - Declarative / Imperative typechecks available<br>
+        - Complex type structures supported<br>
+        - Configurable<br>
+        - Expandable (custom types)<br>
     </div>
 </div>
 
