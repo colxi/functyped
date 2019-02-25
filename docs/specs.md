@@ -9,14 +9,16 @@
 	<div class="">
        <h3>Concept :</h3>
     Strong typing can be a cool feature in a language, it can let you avoid and prevent stupid errors, and scale your applications and architecture with solid fundaments, but if you have to sacrifice your coding style, to achieve it, is totally worthless. In my opinion, Vanila is the best flavor for Javascript, and any improvement performed on top of it, should be done from the philosophy of the simplicity and minimalism. 
-Functyped has been impemented having in mind the non intrusivity principle. 
+Functyped has been impemented having in mind the non intrusivity principle.  Its can be incorporated in your project progresivelly in a non breaking way, or even be totally disabled, without having to change a single line of code to keep it working. 
     </div>
 	<div class="">
-        <h3>Characteristics & features :</h3>
+        <h3>features :</h3>
         - Tiny (6Kb minified)<br>
         - No dependencies<br>
-        - Multi enviroment & crossbrowser (Node, Chrome, Firefox, Safari, Edge...)<br>
-        - Multiple function declaration styles : Overload / Inline / Interfaces <br>
+        - Multi enviroment & crossbrowser 
+        <div class="small-text">(Node, Chrome, Firefox, Safari, Edge...)</div>
+        - Multiple function declaration styles : 
+        <div class="small-text">Overload / Inline / Interface</div>
         - Declarative / Imperative typechecks available<br>
         - Complex type structures supported<br>
         - Configurable<br>
