@@ -3,7 +3,10 @@
 | About | Specs |
 
 
-<div>test</div>
+<div class="cols-2">
+	<div class="">a</div>
+	<div class="">b</div>
+</div>
 
 **Characteristics & features :**
 - Tiny (6Kb minified)
