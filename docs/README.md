@@ -1,26 +1,9 @@
 ## Functyped
 
-
-<table align="center">
-    <tr>
-        <td align="center">
-        Automatic **static type-checking** for javascript functions through declarative syntax, providing  complete support to the language native data-types / primitives,  as well as to complex typed structures and custom types.
-        </td>
-        <td>
-        ```javascript
-require('functyped');
-
-// Declare a function that recieves two Numbers, and returns a Boolean
-const myFunc = Typed.function( [ Number, Number ] , (a,b)=>{ return a==b },  Boolean);
-
-myFunc(1,'2');
-// Uncaught TypeError : Invalid type found in argument 2. (Expecting a "Number").
-```
-        </td>
-    </tr>
-</table>
+| column | column |
 
 
+Automatic **static type-checking** for javascript functions through declarative syntax, providing  complete support to the language native data-types / primitives,  as well as to complex typed structures and custom types.
 
 **Characteristics & features :**
 - Tiny (6Kb minified)
