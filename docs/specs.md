@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="style.css">
 
-## Functyped : Specifications
+## Functyped : About
 
-| [Home](./README.md) | Specs | Usage | Install | Expand |
+| [Home](./README.md) | About | Usage | Install | Expand |
 
 
 <div id="cols" class="cols">
