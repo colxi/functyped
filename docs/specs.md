@@ -7,8 +7,9 @@
 
 <div id="cols" class="cols">
 	<div class="">
-       <h3>About :</h3>
-    lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  v lorem ipsum dolorem amet  v v v lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  
+       <h3>Concept :</h3>
+    Strong typing can be a cool feature in a language, it can let you avoid and prevent stupid errors, and scale your applications and architecture with solid fundaments, but if you have to sacrifice your coding style, to achieve it, is totally worthless. In my opinion, Vanila is the best flavor for Javascript, and any improvement performed on top of it, should be done from the philosophy of the simplicity and minimalism. 
+Functyped has been impemented having in mind the non intrusivity principle. 
     </div>
 	<div class="">
         <h3>Characteristics & features :</h3>
