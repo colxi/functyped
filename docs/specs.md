@@ -1,22 +1,26 @@
 ## Functyped : Specifications
 
-| About | Specs |
+| About | Specs | Usage | Install | Expand |
 
 
 <div class="cols-2">
-	<div class="">a</div>
-	<div class="">b</div>
+	<div class="">
+    	lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  v lorem ipsum dolorem amet  v v v lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  
+    </div>
+	<div class="">
+        <h3>Characteristics & features :</h3>
+        - Tiny (6Kb minified)
+        - No dependencies
+        - Multi enviroment & crossbrowser (Node, Chrome, Firefox, Safari, Edge...)
+        - Multiple function declaration styles : Overload / Inline / Interfaces 
+        - Declarative / Imperative typechecks available
+        - Complex type structures supported
+        - Configurable
+        - Expandable (custom types)
+    </div>
 </div>
 
-**Characteristics & features :**
-- Tiny (6Kb minified)
-- No dependencies
-- Multi enviroment & crossbrowser (Node, Chrome, Firefox, Safari, Edge...)
-- Multiple function declaration styles : Overload / Inline / Interfaces 
-- Declarative / Imperative typechecks available
-- Complex type structures supported
-- Configurable
-- Expandable (custom types)
+
 
 **Supported types :**
 
