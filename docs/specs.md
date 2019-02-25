@@ -1,9 +1,9 @@
 ## Functyped : Specifications
 
-| [Home](./README.rm) | Specs | Usage | Install | Expand |
+| [Home](./README.md) | Specs | Usage | Install | Expand |
 
 
-<div class="cols">
+<div id="cols" class="cols">
 	<div class="">
        <h3>About :</h3>
     lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  v lorem ipsum dolorem amet  v v v lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  lorem ipsum dolorem amet  
