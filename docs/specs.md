@@ -7,30 +7,35 @@
 
 <div id="cols" class="cols">
 	<div class="">
-       <h3>Concept :</h3>
-    Strong typing can be a cool feature in a language, it can let you avoid and prevent stupid errors, and scale your applications and architecture with solid fundaments, but if you have to sacrifice your coding style, to achieve it, is totally worthless. In my opinion, Vanila is the best flavor for Javascript, and any improvement performed on top of it, should be done from the philosophy of the simplicity and minimalism. 
-Functyped has been impemented having in mind the non intrusivity principle.  Its can be incorporated in your project progresivelly in a non breaking way, or even be totally disabled, without having to change a single line of code to keep it working. 
+       <h3>Background :</h3>
+The  Not-Strongly-Typed natural condition of Javascriot lets us perform fast and safe implementations, without caring too much about data types, however we all found ourselves introducing manual type checks at the entry points of our functions, to ensure the incoming data will not break the expected behaviour of those functions.
+It is a tedious a task, and a simple mistake or an oversight, can lead into  nasty bugs and unexpected consequences, sometimes dificult to trace and debug. Functyped aims to provide an assortment of tools to tackle this subject, using a natural and non intrusive approach, respectful with your current coding style.
     </div>
 	<div class="">
-        <h3>features :</h3>
+        <h3>Features :</h3>
         - Tiny (6Kb minified)<br>
         - No dependencies<br>
         - Multi enviroment & crossbrowser 
         <div class="small-text">(Node, Chrome, Firefox, Safari, Edge...)</div>
-        - Multiple function declaration styles : 
+        - Multiple declaration syntax styles availables : 
         <div class="small-text">Overload / Inline / Interface</div>
         - Declarative / Imperative typechecks available<br>
-        - Complex type structures supported<br>
+        - Uses Native types identifiers
+        <div class="small-text">Number / String / Boolean / Object...</div>
+        - Complex typed structures supported<br>
         - Configurable<br>
         - Expandable (custom types)<br>
     </div>
 </div>
 
 
-
+---
 **Supported types :**
+One of the objectives in the development on Funtyped was to avoid introducing new exotic identifiers, and use instead all the currently available elements from the language, in order to keep everything simple and famiiar. 
+This are the Types supported by Functyped out-of-the-box :
 
-<table align="center">
+
+<table id="supported-types" align="center">
     <tr>
         <td align="center">Boolean</td>
         <td align="center">Number</td>
