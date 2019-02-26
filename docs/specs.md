@@ -1,13 +1,11 @@
-<link rel="stylesheet" href="style.css">
+<li| [Home](./README.md) | About | Usage | Install | Expand |
+nk rel="stylesheet" href="style.css">
 
-## Functyped : About
-
-| [Home](./README.md) | About | Usage | Install | Expand |
+# Functyped : About
 
 
 <div id="cols" class="cols">
 	<div class="text-justified">
-       <h3>Background :</h3>
 The  Not-Strongly-Typed natural condition of Javascriot lets us perform fast and safe implementations, without caring too much about data types, however we all found ourselves introducing manual type checks at the entry points of our functions, to ensure the incoming data will not break the expected behaviour of those functions.
 It is a tedious a task, and a simple mistake or an oversight, can lead into  nasty bugs and unexpected consequences, sometimes dificult to trace and debug. Functyped aims to provide an assortment of tools to tackle this subject, using a natural and non intrusive approach, respectful with your current coding style.
     </div>
@@ -32,7 +30,9 @@ It is a tedious a task, and a simple mistake or an oversight, can lead into  nas
 
 
 ---
-**Supported types :**
+
+## Supported types :
+
 One of the objectives in the development on Funtyped was to avoid introducing new exotic identifiers, and use instead all the currently available elements from the language, in order to keep everything simple and famiiar. 
 This are the Types supported by Functyped out-of-the-box :
 
