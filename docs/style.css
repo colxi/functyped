@@ -15,3 +15,11 @@
 .text-justified{
 	text-align: justify;
 }
+
+.features{
+    background: #529e5d;
+    padding: 45px;
+    margin: 20px;
+    color: white;
+    font-size: .95em;
+}

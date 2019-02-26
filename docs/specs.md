@@ -1,5 +1,5 @@
-<li| [Home](./README.md) | About | Usage | Install | Expand |
-nk rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
+| [Home](./README.md) | About | Usage | Install | Expand |
 
 # Functyped : About
 
@@ -9,13 +9,13 @@ nk rel="stylesheet" href="style.css">
 The  Not-Strongly-Typed natural condition of Javascriot lets us perform fast and safe implementations, without caring too much about data types, however we all found ourselves introducing manual type checks at the entry points of our functions, to ensure the incoming data will not break the expected behaviour of those functions.
 It is a tedious a task, and a simple mistake or an oversight, can lead into  nasty bugs and unexpected consequences, sometimes dificult to trace and debug. Functyped aims to provide an assortment of tools to tackle this subject, using a natural and non intrusive approach, respectful with your current coding style.
     </div>
-	<ul class="">
+	<ul class="features">
         <li>Tiny (6Kb minified)</li>
         <li>No dependencies</li>
         <li>Multi enviroment & crossbrowser 
           <div class="small-text">Node, Chrome, Firefox, Safari, Edge</div>
         </li>
-        <li>Multiple declaration syntax styles availables : 
+        <li>Multiple declaration syntax styles available : 
           <div class="small-text">Overload / Inline / Interface</div>
         </li>
         <li> Declarative / Imperative typechecks available</li>
