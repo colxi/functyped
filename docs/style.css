@@ -11,3 +11,7 @@
 	font-size: .8em;
     font-weight: bold;
 }
+
+.text-justified{
+	text-align: justify;
+}
