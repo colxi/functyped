@@ -15,21 +15,25 @@ This are the Types supported by Functyped out-of-the-box :
         <td align="center">Boolean</td>
         <td align="center">Number</td>
         <td align="center">String</td>
-        <td align="center">Array</td>
-        <td align="center">Function</td>
     </tr>
     <tr>
+        <td align="center">Array</td>
+        <td align="center">Function</td>
         <td align="center">Object</td>
+    </tr>
+    <tr>
         <td align="center">Symbol</td>
         <td align="center">Promise</td>
         <td align="center">Date</td>
-        <td align="center">Error</td>
     </tr>
     <tr>
-        <td align="center">undefined</td>
+    	<td align="center">Error</td>
         <td align="center">null</td>
+        <td align="center">undefined</td>
+    </tr>
+    <tr>
         <td align="center">*Any* </td>
-        <td align="center">*Structured { } / [ ]*</td>
+        <td align="center">*Structures*</td>
         <td align="center">*Custom*</td>
     </tr>
 </table>
@@ -40,22 +44,58 @@ This are the Types supported by Functyped out-of-the-box :
 ---
 
 
-## Performance
+## Typed structures
+The type-check engine comes with the most common types checks implemented. They can be used to perform tests against single variables, but they can also be used to define complex structures.
 
 
-Because of the loosely typed nature of javascript, no type check is performed at compilation time. It is the developer who needs to perform those checks by their own, at execution time. 
+```javascript
+let t_structure = {
+	name : String,
+    scores : [ Number, Number, Number, Number],
+    address : {
+    	city : String,
+	    zipCode : Number
+    }
+}
 
-> A continuous check on the used variables values comes obviously with a performance penalty, especially when it's widespread.
+let sayHi = Typed.function( t_structure , x=>{
+	console.log('Hi' + x.name + '!');
+    return true;
+}, Boolean );
 
-A system able to automatize this task in your functions requires the usage of wrappers over those functions, which, in turn, also adds another layer of performance reduction.
+sayHi({
+	name : 'Phil',
+    scores : [ 55, 23, 74, 12],
+    address : {
+    	city : 'Barcelona',
+	    zipCode : 08001
+    }
+})
+```
+As you can see in the example, `Typed Objects Structure` and `Typed  Array Structured` are supported, as well as nesting.
 
-Personally, I think an automated type-check system can be especially useful in development enviroments, but should be disabled in **demanding production enviroments**.
+**The type checks performed in both Typed Structures are strict in the sense that Array length / Object structure (keys) must match, in order to pass the checks.**
 
-The `Typed.enabled` property allows to completelly disable the type-checks without affecting the behavior of your code, and giving back the native execution performance. 
-**It is important to understand that it is necessary to disable the engine before any function is declared, otherwise the function wrappers will still be generated.**
 
-Since the imperative type-check method (`Typed.validate()`) is not affected by the `Typed.enabled` directive, it still can be used to perform critical type checks, in scenarios where type-checking is mandatory (like user input validation)
 
-In result, you can enjoy a complete static type check experience, without any performance downside, or code style pollution (thanks to overload declaration syntax)
 
-Performance tests : https://jsperf.com/functyped/
+## Adding new Types
+
+Using the `Typed.addType()` method , more types can be added easilly.
+
+```
+Typed.addType( type , test )
+```
+**Arguments :**
+- `type` : Reference representing the new Type (Constructor, String, Symbol...)
+- `test` : Function that will perform the test, and return a Boolean
+
+**Example :**
+```javascript
+// adding a browser native object
+Typed.addType( HTMLElement , x=> x instanceof HTMLElement );
+
+// adding a custom type
+const Integer = Symbol('Integer');
+Typed.addType( Integer , x=> Number.isInteger(x) );
+

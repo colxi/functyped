@@ -167,37 +167,6 @@ myFunc2(6,8); // returns true
 > Note :  Arrow functions can't be used with interfaces, since they lack of function name ( which used as interface identifier )
 
 
-## Typed structures
-The type-check engine comes with the most common types checks implemented. They can be used to perform tests against single variables, but they can also be used to define complex structures.
-
-
-```javascript
-let t_structure = {
-	name : String,
-    scores : [ Number, Number, Number, Number],
-    address : {
-    	city : String,
-	    zipCode : Number
-    }
-}
-
-let sayHi = Typed.function( t_structure , x=>{
-	console.log('Hi' + x.name + '!');
-    return true;
-}, Boolean );
-
-sayHi({
-	name : 'Phil',
-    scores : [ 55, 23, 74, 12],
-    address : {
-    	city : 'Barcelona',
-	    zipCode : 08001
-    }
-})
-```
-As you can see in the example, `Typed Objects Structure` and `Typed  Array Structured` are supported, as well as nesting.
-
-**The type checks performed in both Typed Structures are strict in the sense that Array length / Object structure (keys) must match, in order to pass the checks.**
 
 ## Binding
 In some circunstances , you will need to bind your function to a specific context, and the `binding` parameter lets you accomplish that.
