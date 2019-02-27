@@ -36,7 +36,7 @@ It is a tedious a task, and a simple mistake or an oversight, can lead into  nas
 ---
 
 
-**Example :**
+**Example of implicit type check :**
 
 ```javascript
 import './functyped.js';
@@ -57,4 +57,35 @@ stringCompare( 'foo', false);
 // TypeError : Invalid type found in argument 2. (Expecting "Number").
 stringCompare( 'foo' ); 
 // TypeError : Function expects 2 arguments. (1 provided)
+```
+
+
+**Example of explicit type check :**
+```javascript
+// declare a regular function
+function myFunc(a,b,c){
+	// perform an explicit type check for the provided arguments
+	Typed.validate( arguments, [String,Number, Boolean] );
+	console.log(a,b,c);
+	return true;
+}
+
+myFunc('foo', 12, true);
+// passes the explicit type checks
+
+
+**Example of safe type chek :**
+```javascript
+// declare a regular function
+function myFunc(a,b,c){
+	// perform a safe type check for the provided arguments
+	let result =  Typed.test( arguments, [String,Number, Boolean] );
+	console.log(a,b,c);
+	return result;
+}
+
+myFunc('foo', 12, true);
+// passes the explicit type checks, an d returns true
+
+
 ```
