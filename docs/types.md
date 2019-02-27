@@ -44,11 +44,17 @@ This are the Types supported by Functyped out-of-the-box :
 ---
 
 
-## Typed structures
-The type-check engine comes with the most common types checks implemented. They can be used to perform tests against single variables, but they can also be used to define complex structures.
+## Typed Structures
 
+The supported data types can be used to define complex data structures, based in Arrays and Objects, that will be used to perform the type checks.
+Nested structures are also supported.
+
+> The type checks performed in both Typed Structures are strict in the sense that Array length / Object structure (keys) must match, in order to pass the checks.
+
+In the following example is shown a complex Typed Sructure, with some nesting.
 
 ```javascript
+// declare the typed structure
 let t_structure = {
 	name : String,
     scores : [ Number, Number, Number, Number],
@@ -58,11 +64,14 @@ let t_structure = {
     }
 }
 
+// Generate a typed function
 let sayHi = Typed.function( t_structure , x=>{
 	console.log('Hi' + x.name + '!');
     return true;
 }, Boolean );
 
+
+// Test
 sayHi({
 	name : 'Phil',
     scores : [ 55, 23, 74, 12],
@@ -72,9 +81,7 @@ sayHi({
     }
 })
 ```
-As you can see in the example, `Typed Objects Structure` and `Typed  Array Structured` are supported, as well as nesting.
 
-**The type checks performed in both Typed Structures are strict in the sense that Array length / Object structure (keys) must match, in order to pass the checks.**
 
 
 

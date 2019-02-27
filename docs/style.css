@@ -24,16 +24,14 @@
     font-size: .95em;
 }
 
+
+.types-container{ padding: 20px; }
+
 .types-container table tr:nth-child(odd){
     background: #159957;
     color: white;
 }
 
-.types-container table  {
-    border: 1px solid #CCC;
-    border-collapse: collapse;
-}
+.types-container table  { border-collapse: collapse; }
 
-.types-container table td {
-    border: none;
-}
+.types-container table td {  border: none; }
