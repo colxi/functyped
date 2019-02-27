@@ -9,34 +9,34 @@
 One of the objectives in the development on Funtyped was to avoid introducing new exotic identifiers, and use instead all the currently available elements from the language, in order to keep everything simple and famiiar. 
 This are the Types supported by Functyped out-of-the-box :
     </div>
-	<div>
+	<div class="types-container">
         <table id="supported-types" align="center">
-    <tr>
-        <td align="center">Boolean</td>
-        <td align="center">Number</td>
-        <td align="center">String</td>
-    </tr>
-    <tr>
-        <td align="center">Array</td>
-        <td align="center">Function</td>
-        <td align="center">Object</td>
-    </tr>
-    <tr>
-        <td align="center">Symbol</td>
-        <td align="center">Promise</td>
-        <td align="center">Date</td>
-    </tr>
-    <tr>
-    	<td align="center">Error</td>
-        <td align="center">null</td>
-        <td align="center">undefined</td>
-    </tr>
-    <tr>
-        <td align="center">*Any* </td>
-        <td align="center">*Structures*</td>
-        <td align="center">*Custom*</td>
-    </tr>
-</table>
+			<tr>
+				<td align="center">Boolean</td>
+				<td align="center">Number</td>
+				<td align="center">String</td>
+			</tr>
+			<tr>
+				<td align="center">Array</td>
+				<td align="center">Function</td>
+				<td align="center">Object</td>
+			</tr>
+			<tr>
+				<td align="center">Symbol</td>
+				<td align="center">Promise</td>
+				<td align="center">Date</td>
+			</tr>
+			<tr>
+				<td align="center">Error</td>
+				<td align="center">null</td>
+				<td align="center">undefined</td>
+			</tr>
+			<tr>
+				<td align="center">Any</td>
+				<td align="center">Structures</td>
+				<td align="center">Custom</td>
+			</tr>
+		</table>
     </div>
 </div>
 
@@ -68,7 +68,7 @@ sayHi({
     scores : [ 55, 23, 74, 12],
     address : {
     	city : 'Barcelona',
-	    zipCode : 08001
+		zipCode : 08001
     }
 })
 ```
@@ -98,4 +98,4 @@ Typed.addType( HTMLElement , x=> x instanceof HTMLElement );
 // adding a custom type
 const Integer = Symbol('Integer');
 Typed.addType( Integer , x=> Number.isInteger(x) );
-
+```

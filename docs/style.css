@@ -23,3 +23,17 @@
     color: white;
     font-size: .95em;
 }
+
+.types-container table tr:nth-child(odd){
+    background: #159957;
+    color: white;
+}
+
+.types-container table  {
+    border: 1px solid #CCC;
+    border-collapse: collapse;
+}
+
+.types-container table td {
+    border: none;
+}
