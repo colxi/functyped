@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style.css">
 | [Home](./README.md) | Usage | Install | [Types](./types.md)  |
 
 ## Functyped
