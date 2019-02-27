@@ -7,6 +7,8 @@
 Automatic real time **static type-checking** for Javascript functions through declarative syntax. This library provides  complete support to the language native data-types / primitives,  as well as to complex typed structures and custom types. 
 
 
+---
+
 <div id="cols" class="cols">
 	<div class="text-justified">
 The  Not-Strongly-Typed natural condition of Javascriot lets us perform fast and safe implementations, without caring too much about data types, however we all found ourselves introducing manual type checks at the entry points of our functions, to ensure the incoming data will not break the expected behaviour of those functions.
@@ -31,8 +33,10 @@ It is a tedious a task, and a simple mistake or an oversight, can lead into  nas
     </ul>
 </div>
 
+---
 
 
+**Example :**
 
 ```javascript
 import './functyped.js';
