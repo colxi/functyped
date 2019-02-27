@@ -72,7 +72,7 @@ function myFunc(a,b,c){
 
 myFunc('foo', 12, true);
 // passes the explicit type checks
-
+```
 
 **Example of safe type chek :**
 ```javascript
