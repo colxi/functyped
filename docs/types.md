@@ -44,7 +44,7 @@ This are the Types supported by Functyped out-of-the-box :
 ---
 
 
-## Typed Structures
+## 1. Typed Structures
 
 The supported data types can be used to define complex data structures, based in Arrays and Objects, that will be used to perform the type checks.
 Nested structures are also supported.
@@ -56,7 +56,7 @@ In the following example is shown a complex Typed Sructure, with some nesting.
 ```javascript
 // declare the typed structure
 let t_structure = {
-	name : String,
+    name : String,
     scores : [ Number, Number, Number, Number],
     address : {
     	city : String,
@@ -66,7 +66,7 @@ let t_structure = {
 
 // Generate a typed function
 let sayHi = Typed.function( t_structure , x=>{
-	console.log('Hi' + x.name + '!');
+    console.log('Hi' + x.name + '!');
     return true;
 }, Boolean );
 
@@ -77,7 +77,7 @@ sayHi({
     scores : [ 55, 23, 74, 12],
     address : {
     	city : 'Barcelona',
-		zipCode : 08001
+        zipCode : 08001
     }
 })
 ```
@@ -86,12 +86,12 @@ sayHi({
 
 
 
-## Adding new Types
+## 2. Custom Types
 
-Using the `Typed.addType()` method , more types can be added easilly.
+Using the `Typed.typedef()` method , more types can be added easilly.
 
 ```
-Typed.addType( type , test )
+Typed.typedef( type , test )
 ```
 **Arguments :**
 - `type` : Reference representing the new Type (Constructor, String, Symbol...)
@@ -105,4 +105,12 @@ Typed.addType( HTMLElement , x=> x instanceof HTMLElement );
 // adding a custom type
 const Integer = Symbol('Integer');
 Typed.addType( Integer , x=> Number.isInteger(x) );
+
+
+// define a new type based in a typed Structure
+const myStruct = {
+	name:String,
+	surname : String
+};
+Typed.addType( myStruct , x=> Typed.test( x, myStruct) );
 ```
