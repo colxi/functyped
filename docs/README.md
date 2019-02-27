@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="style.css">
-| [Home](./README.md) | Usage | Install | [Types](./types.md)  |
+| [Home](./README.md) | [Usage](./usage.md) | Install | [Types](./types.md)  |
 
 ## Functyped
 
