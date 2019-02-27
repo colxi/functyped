@@ -6,8 +6,8 @@
 
 <div id="cols" class="cols">
 	<div class="text-justified">
-One of the objectives in the development on Funtyped was to avoid introducing new exotic identifiers, and use instead all the currently available elements from the language, in order to keep everything simple and famiiar. 
-This are the Types supported by Functyped out-of-the-box :
+One of the objectives in the development on Funtyped was to avoid introducing new exotic identifiers, and use instead all the currently available elements from the language, in order to keep everything simple and famiiar.<br> 
+In the table are listed all the supported by Functyped out-of-the-box :
     </div>
 	<div class="types-container">
         <table id="supported-types" align="center">
@@ -43,8 +43,33 @@ This are the Types supported by Functyped out-of-the-box :
 
 ---
 
+## 1. Any (Type)
 
-## 1. Typed Structures
+`Any` is a special data-type that behaves as a `wildcard`. When used the typechecks will always pass, any data type is allowed.
+
+
+```javascript
+
+// Generate a typed function that expects any type as an argument, 
+// and returns a Boolean
+let sayHi = Typed.function( Any , x=>{
+    console.log('Hi' + x + '!');
+    return true;
+}, Boolean );
+
+
+// Test
+sayHi('foo'); // typecheck pass
+
+sayHi(123); // typecheck pass
+
+
+```
+
+
+
+
+## 2. Typed Structures
 
 The supported data types can be used to define complex data structures, based in Arrays and Objects, that will be used to perform the type checks.
 Nested structures are also supported.
@@ -60,20 +85,21 @@ let t_structure = {
     scores : [ Number, Number, Number, Number],
     address : {
     	city : String,
-	    zipCode : Number
+        zipCode : Number
     }
 }
 
-// Generate a typed function
+// Generate a typed function that expects a 
+// t_structure (previously declared) and returns a Boolean
 let sayHi = Typed.function( t_structure , x=>{
     console.log('Hi' + x.name + '!');
     return true;
 }, Boolean );
 
 
-// Test
+// Test the type check
 sayHi({
-	name : 'Phil',
+    name : 'Phil',
     scores : [ 55, 23, 74, 12],
     address : {
     	city : 'Barcelona',
@@ -85,8 +111,7 @@ sayHi({
 
 
 
-
-## 2. Custom Types
+## 3. Custom Types
 
 Using the `Typed.typedef()` method , more types can be added easilly.
 
