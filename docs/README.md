@@ -15,6 +15,7 @@ The  Not-Strongly-Typed natural condition of Javascriot lets us perform fast and
 It is a tedious a task, and a simple mistake or an oversight, can lead into  nasty bugs and unexpected consequences, sometimes dificult to trace and debug. Functyped aims to provide an assortment of tools to tackle this subject, using a natural and non intrusive approach, respectful with your current coding style.
     </div>
 	<ul class="features">
+		<h3>Features</h3>
         <li>Tiny (6Kb minified)</li>
         <li>No dependencies</li>
         <li>Multi enviroment & crossbrowser 
@@ -27,7 +28,7 @@ It is a tedious a task, and a simple mistake or an oversight, can lead into  nas
         <li>Uses Native types identifiers
           <div class="small-text">Number / String / Boolean / Object...</div>
         </li>
-        <li>Complex typed structures supported</li>
+        <li>Complex typed structures</li>
         <li>Configurable</li>
         <li>Expandable (custom types)</li>
     </ul>
@@ -86,6 +87,4 @@ function myFunc(a,b,c){
 
 myFunc('foo', 12, true);
 // passes the explicit type checks, an d returns true
-
-
 ```
