@@ -2,7 +2,13 @@ ul{ list-style: none; }
 
 ul li:before {
     content: '✓';
-    margin-right: 15px;
+    margin-left: -15px;
+    margin-right: 10px;
+}
+
+.small-text{
+	color: #d2d20e;
+    padding-left: 10px;
 }
 
 
