@@ -12,9 +12,9 @@ ul li:before {
 }
 
 
-.main-content :nth-child(2){ border-bottom: 1px solid #d0d0d0; }
+.main-content > table:nth-child(2){ border-bottom: 1px solid #d0d0d0; }
 
-.main-content :nth-child(2) td{ border: none !important; }
+.main-content > table:nth-child(2) td{ border: none !important; }
 
 
 .cols{
