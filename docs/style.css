@@ -36,15 +36,21 @@ ul li:before {
 }
 
 .features{
-    background: #529e5d;
+	background: #529e5d;
     padding: 45px;
     margin: 20px;
     color: white;
     font-size: .95em;
-	    background-image: linear-gradient(120deg, #155799, #159957);
+    background-image: linear-gradient(120deg, #155799, #159957);
     box-shadow: 0 0 2px 0px #9a9a9a;
+    padding-top: 30px;
+    padding-bottom: 40px;
 }
 
+.features h3{
+	color: white;
+    border-bottom: 1px solid #d0d0d0;
+}
 
 .types-container{ padding: 20px; }
 
