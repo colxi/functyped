@@ -16,21 +16,22 @@
 	 * the methods to test/identify them. More types can be added
 	 * using the Typed.addType() method
 	 */
-	const _Types = {
-		[Any]      : x=>{ return true                        },
-		[Boolean]  : x=>{ return typeof x === 'boolean'      },
-		[Number]   : x=>{ return typeof x === 'number'       },
-		[String]   : x=>{ return typeof x === 'string'       },
-		[Array]    : x=>{ return Array.isArray(x)            },
-		[Function] : x=>{ return typeof x === 'function'     },
-		[Promise]  : x=>{ return !!x && (typeof x === 'object' || typeof x === 'function') && typeof x.then === 'function' },
-		[Object]   : x=>{ return x && typeof x === 'object'  },
-		[Date]     : x=>{ return x instanceof Date           },
-		[Symbol]   : x=>{ return typeof x === 'symbol'       },
-		[Error]    : x=>{ return x instanceof Error          },
-		[null]     : x=>{ return !x && typeof x === 'object' },
-		[undefined]: x=>{ return typeof x === 'undefined'    },
-	}
+	const _Types = new Map();
+	_Types.set( Any       , x=>{ return true } );
+	_Types.set( Boolean   , x=>{ return typeof x === 'boolean' } );
+	_Types.set( Number    , x=>{ return typeof x === 'number' } );
+	_Types.set( String    , x=>{ return typeof x === 'string' } );
+	_Types.set( Array     , x=>{ return Array.isArray(x) } );
+	_Types.set( Function  , x=>{ return typeof x === 'function' } );
+	_Types.set( Promise   , x=>{ return !!x && (typeof x === 'object' || typeof x === 'function') && typeof x.then === 'function' } );
+	_Types.set( Object    , x=>{ return x && typeof x === 'object' } );
+	_Types.set( Date      , x=>{ return x instanceof Date } );
+	_Types.set( Symbol    , x=>{ return typeof x === 'symbol' } );
+	_Types.set( Error     , x=>{ return x instanceof Error } );
+	_Types.set( null      , x=>{ return !x && typeof x === 'object' } );
+	_Types.set( undefined , x=>{ return typeof x === 'undefined' } );
+
+
 
 	/* 
 	 * _isArrowFunction() : Basic check to identify an arrow Function.
@@ -72,7 +73,7 @@
 	const _typeExists = function( type ){
 		// check if type exist in types definitions
 		// ( prevent an array with a Primitive inside, return false positives )
-		if( !Array.isArray(type) && _Types.hasOwnProperty( type ) ) return true;
+		if( !Array.isArray(type) && _Types.has( type ) ) return true;
 		// if does not exist, perform some extra checks to support 
 		// comples & nested types in Arrays ( [] ) and  Objects ( {} )
 
@@ -135,10 +136,10 @@
 		__fn__       : 0,
 		// Add new types to the supportes types collection
 		addType : function(type, test){
-			if( !_Types.hasOwnProperty(type) ){
+			if( !_Types.has(type) ){
 				throw new Error('Typed.addType() : Provided type already exists.');
 			}
-			else _Types[type] = test;
+			else _Types.set( type , test );
 		},
 		// Method to declare new typed functions interfaces
 		interface : function( parameterTypes , ifaceName, returnType){
@@ -287,8 +288,8 @@
 			}
 			
 			// check if type exists and perform the type test
-			if( !Array.isArray(type)  && _Types.hasOwnProperty( type ) ){
-				return _Types[ type ]( element );
+			if( !Array.isArray(type)  && _Types.has( type ) ){
+				return _Types.get( type )( element );
 			};
 			
 			// if does not exist, perform some extra checks to support structured
