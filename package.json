@@ -13,9 +13,9 @@
     "static types",
     "strong types",
     "type check",
-    "typed js"
+    "typed js",
     "typed",
-    "types",
+    "types"
   ],
   "description": "Automatic static type-checking for javascript functions through declarative syntax.",
   "main": "functyped.js",

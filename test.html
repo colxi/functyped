@@ -1,0 +1,24 @@
+<html>
+    <script src="functyped.js"></script>
+    <script>
+        function perf(func, args){
+            let a = performance.now() ;
+            for(let i=0;i<100000;i++) func(...args)
+            return performance.now() - a;
+        }
+
+
+
+        let a = Typed( function( a=Boolean ){  
+            return ;
+        })
+        
+        let k=function(a) { 
+            if(typeof a !== 'boolean') throw new Error();
+            if( arguments.length !== 1) throw new Error();
+            return a;
+        }
+
+       console.log( perf(a,  [true]) / perf(k,   [true]  ) );
+    </script>
+</html>
