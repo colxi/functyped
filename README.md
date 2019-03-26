@@ -1,14 +1,14 @@
 ## Functyped : Static types for JS functions
 
-Automatic **static type-checking** for javascript functions through declarative syntax, providing  complete support to the language native data-types / primitives,  as well as to complex typed structures and custom types.
+Automatic runtime  **static type-checking** for javascript functions through declarative syntax, providing  complete support to the most **common types** ,  as well as to complex **typed structures** and **custom types**.
 
 ```javascript
-import 'functyped.js';
+import {Typed} from './functyped.js';
 
 // declare a typed functioin that expects a Number 
 // and a String as arguments 
 const myFunc = Typed( (a=Number , b=String) => {
-	console.log( a , b );
+    console.log( a , b );
 })
 
 myFunc( 12, 12 );
@@ -16,16 +16,18 @@ myFunc( 12, 12 );
 // (Expecting type: "String").
 ```
 
-**Characteristics & features :**
-- Highly performant (v2.1 is x50 faster than previous release)
+## Features
+- Highly performant (x50 faster after version v2.0.0)
 - Tiny (6Kb minified)
 - No dependencies
 - Multi enviroment & crossbrowser (Node, Chrome, Firefox, Safari, Edge...)
-- Declarative syntax
-- Complex type structures supported
+- Declarative syntax (type signatures as default parameter values)
+- Complex typed structures supported
 - Expandable (custom types)
 
 **Supported types :**
+
+The following  `types` are supported out-of-the-box :
 
 <table align="center">
     <tr>
@@ -33,87 +35,116 @@ myFunc( 12, 12 );
         <td align="center">Number</td>
         <td align="center">String</td>
         <td align="center">Array</td>
-        <td align="center">Function</td>
     </tr>
     <tr>
+        <td align="center">Function</td>
         <td align="center">Object</td>
         <td align="center">Symbol</td>
         <td align="center">Promise</td>
-        <td align="center">Date</td>
-        <td align="center">Error</td>
     </tr>
     <tr>
+        <td align="center">Date</td>
+        <td align="center">Error</td>
         <td align="center">undefined</td>
         <td align="center">null</td>
-        <td align="center">*Any</td>
-        <td align="center">*Structures</td>
-        <td align="center">*Custom</td>
+    </tr>
+    <tr style="font-weight: bold; font-style: italic;">
+        <td align="center">Any</td>
+        <td align="center">Struct [...]</td>
+        <td align="center">Struct {...}</td>
+        <td align="center">Custom</td>
     </tr>
 </table>
 
+> You can find information about the special types from this last row in this documentation.
 
 
 ## Package distribution 
 
-Install using Npm :
+**Npm** : Install using... 
 ```
-$ npm install functyped
+$ npm install functyped -s
 ```
 
-Clone with Git :
+**Git** : Clone from Github...
 ```
 $ git clone https://github.com/colxi/functyped
 ```
-Add to your HTML head :
+**Hotlink** : Add in your HTML head (not recomended for production enviroments):
 ```
-<script src="https://colxi.github.io/functyped/functyped.js"></script>
+<script src="https://colxi.github.io/functyped/main.js"></script>
 ```
 
-The library can be imported using ES6 `import`, and Node `require`. In both cases no assignment needs to be performed, the global object `Typed		` is created automatically.
+### Importing 
+The library can be imported using ES6 `import`
+``` javascript
+import {Typed} from './functyped.js';
+```
+
+Or using  Node `require`
+
+```javascript
+const Typed = require('functyped');
+```
+
+As alternative method, you can include in your header the following script, and the `Typed` global variable will be created.
+```
+<script src="path_to_functyped/main.js"></script>
+```
+
 
 ---
-### Syntax
+## Syntax
 ```
 Typed( functionDeclaration [,returnType] )
 ```
 
 **Parameters** :
 - `functionDeclaration` : Function to be type typechecked. Parameters types must be declared using 'default parameter values' 
-- `returnType` : Optional. Type for the function return value.
-
-> If you prefer is also available an alias to this constructor, using  the same syntax, in :  Typed.function()
-
+- `returnType` : (Optional) Type for the function return value.
 
 **Returns** :
 Function with automatic type checking
 
+> When declaring typed `arrow functions` you may prefer to use the  available alias method found in  `Typed.function()` to keep you code more semantycal. 
+
 
 ## Typed structures
-The type-check engine comes with the most common types checks implemented. They can be used to perform single tests, but can also be used to define complex structures, and perform complex checks.
+The typecheck engine comes with the most common type checks out-of-the-box. They can be used individually to perform single tests, but can also be used to define **complex structures**, and perform complex checks. The two supported structures are :
+
+ - `Typed Objects Structure` : Objects with typed properties.
+ - `Typed  Array Structured` : Arrays with typed keys.
+ 
+ Combinations of the previous `typed structured` are allowed, as well as unlimited levels of nesting.
 
 
 ```javascript
-// EXAMPLE 1:  declare a function that expects an Object as argument. The object contains a property called 'name' (String) and a property called 'age' (Number).
+// EXAMPLE 1:  
+// declare a function that expects an Object as argument. 
+// The object contains a property called 'name' (String) 
+// and a property called 'age' (Number).
 const sayHi = Typed( ( user={name:String, age:Number} )=>{
-	console.log('Hi' + user.name + '!');
+    console.log('Hi' + user.name + '!');
 } );
 sayHi( { name : 'Phil', age: 23 } );
 
-// EXAMPLE 2: Declare a function that expects a Number as a first argument, and an array with two Numbers in the second argument.
+// EXAMPLE 2: 
+// Declare a function that expects a Number as a first 
+// argument, and an array with two Numbers in the second 
+// argument.
 const drawCircle = Typed( ( rad=Number , coords=[Number,Number] )=>{
-	console.log('Draw a circle with radius', rad, 'at coordinates', coords);
+    console.log('Draw a circle with radius', rad, 'at coordinates', coords);
 });
-draw( 66 , [97,28] );
-
-
-
+drawCircle( 66 , [97,28] );
 ```
-As you can see in the example, `Typed Objects Structure` and `Typed  Array Structured` are supported, as well as unlimited nesting. The structures can be as complex as you need.
-
-> **The type checks performed in both Typed Structures are strict in the sense that Array length / Object structure (keys) must match, in order to pass the checks.** If you want to handle Objects and Arrays, in a more permisive way, use generic 'Object' and 'Array' type signature instead of  '[...]' and '{...}' 
 
 
-## Adding new Types
+> Important : **The checks performed in Typed Structures are strict, with the provided type signature. In the case of the Typed Arrays, the Array provided in the function call, must contain the same ammount of keys as the one provided in the type signature, to pass the check. The same happens with the objects, where the passed object must contain the same keys found in the Structured Objetc type signature.
+
+> Tip : If you want to handle Objects and Arrays, in a more permisive way, use generic 'Object' and 'Array' type signature instead of  '[...]' and '{...}' 
+
+
+## Adding Custom types
 Using the `Typed.addType()` method , more types can be added easilly.
 
 ```
@@ -138,7 +169,7 @@ When a new type is added, the engine declares a reference to it in the global sc
 Typed.addType( 'Integer' , x=> Number.isInteger(x) );
 // Use the new type in a typed function
 const myFunc = Typed( (a=Integer) => {
-	console.log( a );
+    console.log( a );
 })
 // call your function
 myFunc(12);
@@ -147,22 +178,25 @@ myFunc(12);
 
 ## Disable errors
 
+By default the engine will trigger an `Error`, stopping the execution, when a type mismatch is found, however you can disable the Error triggering, enabling the  `Warning mode`. 
 
 ```
-Typed.warings = true | false
+Typed.warnings = true | false
 ```
-**Enable/disable notifiacion mode** : If enabled, no Errors will be thrown and informative warning will be triggered instead.
 
 
 
 
 
-### Changelog
+
+## Changelog
 v2.0.2 :
 - Replace Array.isArray for .constructor === Array (gained 5% performance)
 - Replace Types test container from Object to Map ( Gained 5% performqnce)
 - Refactored code (gainer 10% performance)
 - Other Minor performance optimizations
+- Deprcated Typed.validate()
+
 
 v2.0.0 :
 - Removed Interfaces

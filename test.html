@@ -1,7 +1,8 @@
 <html>
-    <script src="functyped.js"></script>
-    <script>
-        function perf(func, args){
+    <script type="module">
+        import {Typed} from './functyped.js';
+
+        function performanceTest(func, ...args){
             let a = performance.now() ;
             for(let i=0;i<100000;i++) func(...args)
             return performance.now() - a;
@@ -10,7 +11,7 @@
 
 
         let a = Typed( function( a=Boolean ){  
-            return ;
+            return a;
         })
         
         let k=function(a) { 
@@ -19,6 +20,6 @@
             return a;
         }
 
-       console.log( perf(a,  [true]) / perf(k,   [true]  ) );
+        console.log( 'module' , performanceTest(a, true) / performanceTest(k, true  ) );
     </script>
 </html>
